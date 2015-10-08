@@ -54,10 +54,7 @@ public class EJ4AD {
 
     public void proceder(String str) throws IOException {
         try {
-            //Size nos da el tamaño TOTAL de las dos lineas leidas.
-
-            this.reiniciarDIS();
-
+            
             total = dis.available();
             System.out.println("Comprobacion de todos los bytes por leer --> " + total + "\n");
             System.out.println("Primera linea leida en UTF: " + dis.readUTF());
@@ -75,15 +72,6 @@ public class EJ4AD {
         } finally {
             dis.close();
             dos.close();
-        }
-    }
-
-    public void reiniciarDIS() {
-        try {
-            dis.close();
-            dis = new DataInputStream(new BufferedInputStream(new FileInputStream(fichero)));
-        } catch (IOException ex) {
-            System.err.println("Error en el reinicio del DataInputStream.");
         }
     }
 
